@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contraste WCAG - Chromix</title>
+  <meta name="description" content="Descubra, crie e compartilhe paletas de cores incríveis. Ferramentas para designers e criativos.">
+  <meta name="keywords" content="paleta de cores, design, cores, gradientes, WCAG, acessibilidade">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <header class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="w-10 h-10 bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+        </div>
+        <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="palette-from-image.html">Paleta de Imagem</a></li>
+            <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
+            <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
+            <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
+            <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
+             <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
+        </ul>
+    </nav>
+
+        <div class="d-flex align-items-center gap-3">
+          <div id="auth-logged-out">
+            <button id="signin-button" class="btn btn-primary rounded-3 px-4">
+              Entrar
+            </button>
+          </div>
+          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none">
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="user" class="text-secondary" style="width: 20px; height: 20px;"></i>
+              <span class="fw-medium text-dark">Usuário</span>
+            </div>
+            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1">
+              <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+              <span>Sair</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow-1 bg-body-tertiary py-5">
+    <div class="container-xl">
+      <div class="text-center mb-5 fade-in-up">
+        <div class="d-flex justify-content-center mb-4">
+          <div class="rounded-4 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: linear-gradient(to right, #FF6B35, #F7931E);">
+            <i data-lucide="eye" class="text-white" style="width: 40px; height: 40px;"></i>
+          </div>
+        </div>
+        <h1 class="display-5 fw-bold text-dark mb-3">Verificador de Contraste WCAG</h1>
+        <p class="fs-5 text-secondary mx-auto" style="max-width: 700px;">
+          Verifique se suas combinações de cores atendem aos padrões de acessibilidade WCAG
+        </p>
+      </div>
+  
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-6 fade-in-up" style="animation-delay: 0.2s;">
+          <div class="card shadow-xl rounded-4 border-0 p-4 p-lg-5">
+            <h2 class="fs-3 fw-bold text-dark mb-4">Seletor de Cores</h2>
+            
+            <div class="mb-4">
+              <label for="fg-color-input" class="form-label fw-medium">Cor do Texto (Primeiro Plano)</label>
+              <div class="input-group">
+                <input type="color" class="form-control form-control-color" id="fg-color-picker" value="#000000" title="Escolha uma cor">
+                <input type="text" class="form-control font-monospace" id="fg-color-input" value="#000000">
+              </div>
+            </div>
+  
+            <div class="mb-4">
+              <label for="bg-color-input" class="form-label fw-medium">Cor de Fundo (Segundo Plano)</label>
+              <div class="input-group">
+                <input type="color" class="form-control form-control-color" id="bg-color-picker" value="#FFFFFF" title="Escolha uma cor">
+                <input type="text" class="form-control font-monospace" id="bg-color-input" value="#FFFFFF">
+              </div>
+            </div>
+  
+            <div>
+              <h3 class="fs-5 fw-semibold text-dark mb-3">Combinações Pré-definidas</h3>
+              <div id="preset-buttons" class="row g-2">
+                </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-6 fade-in-up" style="animation-delay: 0.4s;">
+          <div class="card shadow-xl rounded-4 border-0 p-4 p-lg-5">
+            <h2 class="fs-3 fw-bold text-dark mb-4">Resultado do Contraste</h2>
+            
+            <div id="preview-box" class="rounded-4 p-4 p-lg-5 mb-4 border" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+              <h3 class="fs-4 fw-bold mb-2">Texto de Exemplo</h3>
+              <p class="fs-6 mb-3">
+                Este é um exemplo de como o texto aparecerá com as cores selecionadas.
+              </p>
+              <p class="small mb-0">
+                Texto menor para testar legibilidade em diferentes tamanhos.
+              </p>
+            </div>
+  
+            <div class="text-center mb-4">
+              <div id="contrast-ratio" class="display-4 fw-bold text-dark mb-1">21:1</div>
+              <p class="text-secondary fs-5 m-0">Razão de Contraste</p>
+            </div>
+  
+            <div class="vstack gap-3 mb-4">
+              <div class="bg-body-secondary rounded-4 p-3">
+                <h4 class="fw-semibold text-dark fs-6 mb-3">Texto Normal (14px+)</h4>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span>WCAG AA (4.5:1)</span>
+                  <div id="normal-aa-result" class="d-flex align-items-center gap-1 fw-semibold"></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>WCAG AAA (7:1)</span>
+                  <div id="normal-aaa-result" class="d-flex align-items-center gap-1 fw-semibold"></div>
+                </div>
+              </div>
+              <div class="bg-body-secondary rounded-4 p-3">
+                <h4 class="fw-semibold text-dark fs-6 mb-3">Texto Grande (18px+ ou 14px+ negrito)</h4>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span>WCAG AA (3:1)</span>
+                  <div id="large-aa-result" class="d-flex align-items-center gap-1 fw-semibold"></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>WCAG AAA (4.5:1)</span>
+                  <div id="large-aaa-result" class="d-flex align-items-center gap-1 fw-semibold"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="alert alert-info d-flex align-items-start gap-2 mb-0">
+              <i data-lucide="info" class="flex-shrink-0" style="width: 20px;"></i>
+              <div>
+                <strong class="d-block">Sobre os Níveis WCAG:</strong>
+                <strong>AA:</strong> Padrão mínimo recomendado<br>
+                <strong>AAA:</strong> Nível mais alto de acessibilidade
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+ <footer class="bg-dark text-light pt-5">
+    <div class="container-xl">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+            </div>
+            <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+          </div>
+          <p class="text-light opacity-75 mb-4" style="max-width: 450px;">
+            Sua plataforma criativa para descobrir, criar e compartilhar paletas de cores incríveis. 
+            Ferramentas profissionais para designers e criativos.
+          </p>
+          <div class="d-flex gap-2">
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-blue);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-orange);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-red);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-green);"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Links Rápidos</h5>
+          <ul class="nav flex-column gap-2">
+            <li class="nav-item"><a href="palette-from-image.html" class="nav-link p-0 text-light opacity-75 footer-link">Paleta de Imagem</a></li>
+            <li class="nav-item"><a href="wcag-contrast.html" class="nav-link p-0 text-light opacity-75 footer-link">Contraste WCAG</a></li>
+            <li class="nav-item"><a href="gradients.html" class="nav-link p-0 text-light opacity-75 footer-link">Gradientes</a></li>
+            <li class="nav-item"><a href="color-picker.html" class="nav-link p-0 text-light opacity-75 footer-link">Seletor de Cor</a></li>
+            <li class="nav-item"><a href="references.html" class="nav-link p-0 text-light opacity-75 footer-link">Referências</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Contato</h5>
+          <ul class="nav flex-column gap-3">
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="mail" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">contato@chromix.com</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="phone" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">+55 11 9999-9999</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="map-pin" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">São Paulo, Brasil</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle mt-4 py-4 text-center">
+        <p class="text-light opacity-50 m-0 small"> 
+          © 2025 Chromix. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fgColorPicker = document.getElementById('fg-color-picker');
+      const fgColorInput = document.getElementById('fg-color-input');
+      const bgColorPicker = document.getElementById('bg-color-picker');
+      const bgColorInput = document.getElementById('bg-color-input');
+      const previewBox = document.getElementById('preview-box');
+      const contrastRatioEl = document.getElementById('contrast-ratio');
+      const normalAaResultEl = document.getElementById('normal-aa-result');
+      const normalAaaResultEl = document.getElementById('normal-aaa-result');
+      const largeAaResultEl = document.getElementById('large-aa-result');
+      const largeAaaResultEl = document.getElementById('large-aaa-result');
+      const presetButtonsContainer = document.getElementById('preset-buttons');
+      
+      const presetCombinations = [
+        { name: 'Preto no Branco', fg: '#000000', bg: '#FFFFFF' },
+        { name: 'Branco no Preto', fg: '#FFFFFF', bg: '#000000' },
+        { name: 'Azul no Branco', fg: '#0066CC', bg: '#FFFFFF' },
+        { name: 'Verde no Branco', fg: '#009900', bg: '#FFFFFF' },
+        { name: 'Vermelho no Branco', fg: '#CC0000', bg: '#FFFFFF' },
+        { name: 'Cinza no Branco', fg: '#666666', bg: '#FFFFFF' }
+      ];
+  
+      const getRelativeLuminance = (hex) => {
+        if (hex.length === 4) hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3];
+        if (hex.length !== 7) return 0;
+        const rgb = parseInt(hex.slice(1), 16);
+        if (isNaN(rgb)) return 0;
+        const r = (rgb >> 16) & 0xff, g = (rgb >> 8) & 0xff, b = (rgb >> 0) & 0xff;
+        const [rs, gs, bs] = [r, g, b].map(c => {
+          c = c / 255;
+          return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        });
+        return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+      };
+  
+      const calculateContrastRatio = (color1, color2) => {
+        const lum1 = getRelativeLuminance(color1);
+        const lum2 = getRelativeLuminance(color2);
+        const brightest = Math.max(lum1, lum2);
+        const darkest = Math.min(lum1, lum2);
+        return (brightest + 0.05) / (darkest + 0.05);
+      };
+      
+      const getWCAGLevel = (ratio, isLargeText = false) => {
+        if (isLargeText) {
+          if (ratio >= 4.5) return 'AAA';
+          if (ratio >= 3) return 'AA';
+          return 'Falha';
+        } else {
+          if (ratio >= 7) return 'AAA';
+          if (ratio >= 4.5) return 'AA';
+          return 'Falha';
+        }
+      };
+  
+      function updateUI() {
+        const fg = fgColorInput.value;
+        const bg = bgColorInput.value;
+        fgColorPicker.value = fg;
+        bgColorPicker.value = bg;
+        previewBox.style.color = fg;
+        previewBox.style.backgroundColor = bg;
+        
+        const ratio = calculateContrastRatio(fg, bg);
+        const roundedRatio = Math.round(ratio * 100) / 100;
+        contrastRatioEl.textContent = `${roundedRatio}:1`;
+        
+        updateResultEl(normalAaResultEl, getWCAGLevel(roundedRatio));
+        updateResultEl(normalAaaResultEl, roundedRatio >= 7 ? 'AAA' : 'Falha');
+        updateResultEl(largeAaResultEl, getWCAGLevel(roundedRatio, true));
+        updateResultEl(largeAaaResultEl, roundedRatio >= 4.5 ? 'AAA' : 'Falha');
+        
+        lucide.createIcons();
+      }
+      
+      function updateResultEl(el, level) {
+        el.classList.remove('text-success', 'text-warning', 'text-danger');
+        let icon = 'check';
+        let colorClass = 'text-success';
+        if (level === 'AA') {
+          colorClass = 'text-warning';
+        } else if (level === 'Falha') {
+          colorClass = 'text-danger';
+          icon = 'x';
+        }
+        el.classList.add(colorClass);
+        el.innerHTML = `<i data-lucide="${icon}" style="width: 20px;"></i> <span>${level}</span>`;
+      }
+      
+      function loadPresets() {
+        presetCombinations.forEach(preset => {
+          const button = document.createElement('div');
+          button.className = 'col-6';
+          button.innerHTML = `
+            <button class="btn btn-outline-secondary w-100">
+              <div class="d-flex align-items-center gap-2">
+                <div class="rounded border" style="width: 24px; height: 24px; background-color: ${preset.bg}">
+                  <div class="rounded-circle m-1" style="width: 14px; height: 14px; background-color: ${preset.fg}"></div>
+                </div>
+                <span class="small">${preset.name}</span>
+              </div>
+            </button>
+          `;
+          button.querySelector('button').addEventListener('click', () => {
+            fgColorInput.value = preset.fg;
+            bgColorInput.value = preset.bg;
+            updateUI();
+          });
+          presetButtonsContainer.appendChild(button);
+        });
+      }
+  
+      [fgColorInput, fgColorPicker, bgColorInput, bgColorPicker].forEach(el => {
+        el.addEventListener('input', (e) => {
+          if (e.target.id === 'fg-color-picker') fgColorInput.value = e.target.value;
+          if (e.target.id === 'bg-color-picker') bgColorInput.value = e.target.value;
+          updateUI();
+        });
+      });
+      
+      loadPresets();
+      updateUI();
+    });
+  </script>
+</body>
+</html>

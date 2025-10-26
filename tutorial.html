@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial - Chromix</title>
+  <meta name="description" content="Aprenda a usar a ferramenta de Contraste WCAG da Chromix com nosso tutorial em vídeo.">
+  <meta name="keywords" content="tutorial, WCAG, contraste, acessibilidade, vídeo, como usar">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <header class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+        </div>
+        <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="palette-from-image.html">Paleta de Imagem</a></li>
+            <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
+            <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
+            <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
+            <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
+             <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
+        </ul>
+    </nav>
+
+        <div class="d-flex align-items-center gap-3">
+          <div id="auth-logged-out">
+            <button id="signin-button" class="btn btn-primary rounded-3 px-4">
+              Entrar
+            </button>
+          </div>
+          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none">
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="user" class="text-secondary" style="width: 20px; height: 20px;"></i>
+              <span class="fw-medium text-dark">Usuário</span>
+            </div>
+            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1">
+              <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+              <span>Sair</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow-1 bg-body-tertiary py-5">
+    <div class="container-xl">
+      <div class="text-center mb-5 fade-in-up">
+        <div class="d-flex justify-content-center mb-4">
+          <div class="rounded-4 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: linear-gradient(to right, #2D5016, #61A5C2);">
+            <i data-lucide="youtube" class="text-white" style="width: 40px; height: 40px;"></i>
+          </div>
+        </div>
+        <h1 class="display-5 fw-bold text-dark mb-3">Tutorial de Contraste WCAG</h1>
+        <p class="fs-5 text-secondary mx-auto" style="max-width: 700px;">
+          Descubra como garantir a acessibilidade visual em seus projetos. Aprenda a usar a nossa ferramenta de Contraste WCAG de forma simples e eficiente para criar interfaces que todos possam ver e compreender.
+        </p>
+      </div>
+
+      <div class="ratio ratio-16x9 mb-4">
+
+              <video controls class="w-100 h-100" preload="metadata">
+                <source src="tutorial.mp4" type="video/mp4"> 
+
+                Seu navegador não suporta a tag de vídeo. 
+              </video>
+              </div>
+            <p class="text-secondary mb-0">
+              Neste vídeo, abordamos os princípios do Contraste WCAG, a importância para o design inclusivo e um passo a passo prático de como utilizar a ferramenta Chromix. Desde a inserção das cores até a interpretação dos resultados, você terá tudo o que precisa para criar interfaces mais acessíveis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-light pt-5">
+    <div class="container-xl">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+            </div>
+            <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+          </div>
+          <p class="text-light opacity-75 mb-4" style="max-width: 450px;">
+            Sua plataforma criativa para descobrir, criar e compartilhar paletas de cores incríveis. 
+            Ferramentas profissionais para designers e criativos.
+          </p>
+          <div class="d-flex gap-2">
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-blue);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-orange);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-red);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-green);"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Links Rápidos</h5>
+          <ul class="nav flex-column gap-2">
+            <li class="nav-item"><a href="palette-from-image.html" class="nav-link p-0 text-light opacity-75 footer-link">Paleta de Imagem</a></li>
+            <li class="nav-item"><a href="wcag-contrast.html" class="nav-link p-0 text-light opacity-75 footer-link">Contraste WCAG</a></li>
+            <li class="nav-item"><a href="gradients.html" class="nav-link p-0 text-light opacity-75 footer-link">Gradientes</a></li>
+            <li class="nav-item"><a href="color-picker.html" class="nav-link p-0 text-light opacity-75 footer-link">Seletor de Cor</a></li>
+            <li class="nav-item"><a href="tutorial.html" class="nav-link p-0 text-light opacity-75 footer-link">Tutorial</a></li> <li class="nav-item"><a href="references.html" class="nav-link p-0 text-light opacity-75 footer-link">Referências</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Contato</h5>
+          <ul class="nav flex-column gap-3">
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="mail" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">contato@chromix.com</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="phone" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">+55 11 9999-9999</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="map-pin" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">São Paulo, Brasil</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle mt-4 py-4 text-center">
+        <p class="text-light opacity-50 m-0 small"> 
+          © 2025 Chromix. Todos os direitos reservados. Criado com ❤️ para designers e criativos.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script> 
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*Regra 1 : Pseudo-Classes e Variáveis CSS para Cores da Marca e Personalizações do Bootstrap*/
+:root {
+  --brand-blue: #00BFFF;
+  --brand-orange: #FF6B35;
+  --brand-red: #FF5E5B;
+  --brand-green: #2D5016;
+
+  --bs-primary: var(--brand-orange);
+  --bs-primary-rgb: 255, 107, 53;
+  --bs-link-color-rgb: 255, 107, 53;
+  --bs-link-hover-color-rgb: 255, 107, 53;
+  
+  --bs-secondary: var(--brand-blue);
+  --bs-secondary-rgb: 0, 191, 255;
+  
+  --bs-font-sans-serif: 'Inter', sans-serif;
+  
+  --bs-border-radius: 0.375rem; 
+  --bs-border-radius-xl: 1rem;   
+  --bs-border-radius-2xl: 1.5rem; 
+}
+/*Regra 2 : Define a fonte padrão para todo o corpo do documento HTML*/
+body {
+  font-family: var(--bs-font-sans-serif);
+}
+
+
+/*Regra 3 : Estiliza os elementos de entrada e textarea, incluindo o placeholder*/
+input::placeholder,
+textarea::placeholder {
+  color: #adb5bd; 
+  font-style: italic;
+  opacity: 1; 
+}
+/*Regra 4 : Define gradientes de fundo e texto usando as cores da marca*/
+.bg-brand-gradient {
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-orange), var(--brand-red), var(--brand-green));
+}
+/*Regra 5: Aplica o mesmo gradiente de 4 cores para fundos de logos*/
+.bg-brand-gradient-logo {
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-orange), var(--brand-red), var(--brand-green));
+}
+/*Regra 6 : Aplica um gradiente de duas cores ao texto usando as cores da marca*/
+.bg-brand-gradient-text {
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+/*Regra 7 : Aplica o mesmo gradiente de duas cores para textos de logos*/
+.bg-brand-gradient-logo-text {
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
+.btn-primary {
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-orange));
+  border: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-orange));
+}
+
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*Regra 8 : Define cursores personalizados para o seletor*/
+.cursor-crosshair {
+  cursor: crosshair;
+}
+
+
+.hover-bg-light:hover {
+  background-color: var(--bs-body-tertiary);
+}
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+.transition-shadow {
+  transition: box-shadow 0.2s ease-in-out;
+}
+.card:hover {
+  box-shadow: var(--bs-box-shadow-lg) !important;
+}
+
+footer .footer-link:hover {
+  color: var(--brand-blue) !important; 
+  opacity: 1 !important; 
+}
+
+.username-truncate {
+  display: inline-block; 
+  max-width: 150px;      
+  white-space: nowrap;   
+  overflow: hidden;      
+  text-overflow: ellipsis; 
+  vertical-align: middle; 
+}

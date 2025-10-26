@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chromix - Plataforma Criativa de Paletas de Cores</title>
+  <meta name="description" content="Descubra, crie e compartilhe paletas de cores incríveis. Ferramentas para designers e criativos.">
+  <meta name="keywords" content="paleta de cores, design, cores, gradientes, WCAG, acessibilidade">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <header class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="w-10 h-10 bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+         
+        </div>
+        <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <nav class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="palette-from-image.html">Paleta de Imagem</a></li>
+            <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
+            <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
+            <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
+            <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
+             <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
+        </ul>
+    </nav>
+        <div class="d-flex align-items-center gap-3">
+          <div id="auth-logged-out">
+            <button id="signin-button" class="btn btn-primary rounded-3 px-4">
+              Entrar
+            </button>
+          </div>
+          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none">
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="user" class="text-secondary" style="width: 20px; height: 20px;"></i>
+              <span class="fw-medium text-dark">Usuário</span>
+            </div>
+            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1">
+              <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+              <span>Sair</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow-1">
+    <section class="position-relative bg-body-tertiary py-5">
+      <div class="container-xl py-5">
+        <div class="text-center fade-in-up">
+          <div class="d-flex justify-content-center mb-4">
+            <div class="bg-brand-gradient-logo rounded-4 d-flex align-items-center justify-content-center shadow-lg" style="width: 100px; height: 100px;">
+             
+            </div>
+          </div>
+          
+          <h1 class="display-3 fw-bold mb-3">
+            <span class="bg-brand-gradient-text">
+              Chromix
+            </span>
+          </h1>
+          
+          <p class="fs-4 text-secondary mb-4 mx-auto" style="max-width: 700px;">
+            Descubra, crie e compartilhe paletas de cores incríveis. 
+            Sua plataforma criativa para explorar o mundo das cores.
+          </p>
+          
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <a href="palette-from-image.html" class="btn btn-primary btn-lg rounded-3 px-4 py-2 fs-5">
+              Começar Agora
+            </a>
+            <a href="references.html" class="btn btn-outline-primary btn-lg rounded-3 px-4 py-2 fs-5">
+              Ver Referências
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="py-5 bg-white">
+      <div class="container-xl">
+        <div class="text-center mb-5 fade-in-up">
+          <h2 class="display-5 fw-bold text-dark mb-3">
+            Ferramentas Poderosas para Criativos
+          </h2>
+          <p class="fs-5 text-secondary mx-auto" style="max-width: 700px;">
+            Tudo que você precisa para trabalhar com cores de forma profissional
+          </p>
+        </div>
+  
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: 0.1s;">
+            <a href="palette-from-image.html" class="text-decoration-none">
+              <div class="card shadow-lg rounded-4 p-4 h-100 border-0 transition-shadow">
+                <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 64px; height: 64px; background: linear-gradient(to right, #00BFFF, #118AB2);">
+                  <i data-lucide="image" style="width: 32px; height: 32px;"></i>
+                </div>
+                <h3 class="fs-4 fw-bold text-dark mb-2">Paleta de Imagem</h3>
+                <p class="text-secondary">Extraia cores incríveis de qualquer imagem</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: 0.2s;">
+            <a href="wcag-contrast.html" class="text-decoration-none">
+              <div class="card shadow-lg rounded-4 p-4 h-100 border-0 transition-shadow">
+                <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 64px; height: 64px; background: linear-gradient(to right, #FF6B35, #F7931E);">
+                  <i data-lucide="eye" style="width: 32px; height: 32px;"></i>
+                </div>
+                <h3 class="fs-4 fw-bold text-dark mb-2">Contraste WCAG</h3>
+                <p class="text-secondary">Verifique acessibilidade das suas cores</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: 0.3s;">
+            <a href="gradients.html" class="text-decoration-none">
+              <div class="card shadow-lg rounded-4 p-4 h-100 border-0 transition-shadow">
+                <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 64px; height: 64px; background: linear-gradient(to right, #FF5E5B, #E63946);">
+                  <i data-lucide="layers" style="width: 32px; height: 32px;"></i>
+                </div>
+                <h3 class="fs-4 fw-bold text-dark mb-2">Gradientes</h3>
+                <p class="text-secondary">Crie gradientes deslumbrantes</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: 0.4s;">
+            <a href="color-picker.html" class="text-decoration-none">
+              <div class="card shadow-lg rounded-4 p-4 h-100 border-0 transition-shadow">
+                <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 64px; height: 64px; background: linear-gradient(to right, #2D5016, #61A5C2);">
+                  <i data-lucide="zap" style="width: 32px; height: 32px;"></i>
+                </div>
+                <h3 class="fs-4 fw-bold text-dark mb-2">Seletor de Cor</h3>
+                <p class="text-secondary">Escolha cores de imagens facilmente</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: 0.5s;">
+            <a href="references.html" class="text-decoration-none">
+              <div class="card shadow-lg rounded-4 p-4 h-100 border-0 transition-shadow">
+                <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 64px; height: 64px; background: linear-gradient(to right, #A05195, #D45087);">
+                  <i data-lucide="book-open" style="width: 32px; height: 32px;"></i>
+                </div>
+                <h3 class="fs-4 fw-bold text-dark mb-2">Referências</h3>
+                <p class="text-secondary">Inspire-se com paletas curadas</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: 0.6s;">
+            <a href="create-logo.html" class="text-decoration-none">
+              <div class="card shadow-lg rounded-4 p-4 h-100 border-0 transition-shadow">
+                <div class="d-flex align-items-center justify-content-center rounded-3 text-white mb-4" style="width: 64px; height: 64px; background: linear-gradient(to right, #FFD23F, #F77F00);">
+                  <i data-lucide="sparkles" style="width: 32px; height: 32px;"></i>
+                </div>
+                <h3 class="fs-4 fw-bold text-dark mb-2">Crie sua Logo</h3>
+                <p class="text-secondary">Solicite seu design personalizado</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+  <div class="container-xl">
+    <h2 class="display-6 fw-bold text-dark text-center mb-5 fade-in-up">Depoimento</h2>
+      <div class="row justify-content-center align-items-center g-4 g-lg-5">
+    <div class="row justify-content-center align-items-center g-4 g-lg-5">
+
+      <div class="col-md-4 text-center text-md-end fade-in-up" style="animation-delay: 0.2s;">
+        <img 
+          src="depoimento.jpg" 
+          alt="Cliente Satisfeito da Chromix" 
+          class="img-fluid rounded-circle shadow-lg mx-auto" 
+          style="max-width: 250px; aspect-ratio: 1 / 1; object-fit: cover;"
+        >
+      </div>
+
+      <div class="col-md-8 fade-in-up" style="animation-delay: 0.4s;">
+        <div class="card shadow-xl rounded-4 border-0 p-4 p-lg-5">
+          <i data-lucide="quote" class="text-primary mb-3" style="width: 40px; height: 40px; opacity: 0.7;"></i>
+          <blockquote class="blockquote fs-5 mb-4">
+            <p>"Com a Chromix, meu fluxo de trabalho ficou muito mais rápido e meus designs estão mais acessíveis. Realmente mudou a forma como trabalhamos!"</p>
+          </blockquote>
+          <footer class="blockquote-footer fs-6 fw-medium mb-4">
+            Thiago, <cite title="Cargo">Designer UI/UX na Creative Solutions</cite>
+          </footer>
+
+          <div>
+            <p class="fw-semibold mb-2">Ouça o depoimento:</p>
+            <audio controls preload="metadata" class="w-100">
+              <source src="depoimento.mp3" type="audio/mpeg"> 
+              Seu navegador não suporta o elemento de áudio.
+            </audio>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
+    <section class="py-5 bg-brand-gradient">
+      <div class="container-xl text-center text-white py-5">
+        <div class="fade-in-up">
+          <h2 class="display-5 fw-bold mb-4">
+            Pronto para Criar Algo Incrível?
+          </h2>
+          <p class="fs-5 opacity-75 mb-4">
+            Junte-se a milhares de designers que já usam o Chromix para seus projetos
+          </p>
+          <a href="create-logo.html" class="btn btn-light btn-lg rounded-3 px-4 py-2 fs-5 text-primary fw-semibold">
+            Solicitar Logo Personalizada
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-dark text-light pt-5">
+    <div class="container-xl">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+            </div>
+            <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+          </div>
+          <p class="text-light opacity-75 mb-4" style="max-width: 450px;">
+            Sua plataforma criativa para descobrir, criar e compartilhar paletas de cores incríveis. 
+            Ferramentas profissionais para designers e criativos.
+          </p>
+          <div class="d-flex gap-2">
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-blue);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-orange);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-red);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-green);"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Links Rápidos</h5>
+          <ul class="nav flex-column gap-2">
+            <li class="nav-item"><a href="palette-from-image.html" class="nav-link p-0 text-light opacity-75 footer-link">Paleta de Imagem</a></li>
+            <li class="nav-item"><a href="wcag-contrast.html" class="nav-link p-0 text-light opacity-75 footer-link">Contraste WCAG</a></li>
+            <li class="nav-item"><a href="gradients.html" class="nav-link p-0 text-light opacity-75 footer-link">Gradientes</a></li>
+            <li class="nav-item"><a href="color-picker.html" class="nav-link p-0 text-light opacity-75 footer-link">Seletor de Cor</a></li>
+            <li class="nav-item"><a href="references.html" class="nav-link p-0 text-light opacity-75 footer-link">Referências</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Contato</h5>
+          <ul class="nav flex-column gap-3">
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="mail" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">contato@chromix.com</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="phone" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">+55 11 9999-9999</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="map-pin" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">São Paulo, Brasil</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle mt-4 py-4 text-center">
+        <p class="text-light opacity-50 m-0 small"> 
+          © 2025 Chromix. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script>
+  
+</body>
+</html>

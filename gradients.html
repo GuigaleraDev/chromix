@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradientes - Chromix</title>
+  <meta name="description" content="Descubra, crie e compartilhe paletas de cores incríveis. Ferramentas para designers e criativos.">
+  <meta name="keywords" content="paleta de cores, design, cores, gradientes, WCAG, acessibilidade">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <header class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="w-10 h-10 bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+        </div>
+        <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="palette-from-image.html">Paleta de Imagem</a></li>
+            <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
+            <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
+            <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
+            <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
+             <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
+        </ul>
+    </nav>
+
+        <div class="d-flex align-items-center gap-3">
+          <div id="auth-logged-out">
+            <button id="signin-button" class="btn btn-primary rounded-3 px-4">
+              Entrar
+            </button>
+          </div>
+          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none">
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="user" class="text-secondary" style="width: 20px; height: 20px;"></i>
+              <span class="fw-medium text-dark">Usuário</span>
+            </div>
+            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1">
+              <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+              <span>Sair</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow-1 bg-body-tertiary py-5">
+    <div class="container-xl">
+      <div class="text-center mb-5 fade-in-up">
+        <div class="d-flex justify-content-center mb-4">
+          <div class="rounded-4 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: linear-gradient(to right, #FF5E5B, #E63946);">
+            <i data-lucide="layers" class="text-white" style="width: 40px; height: 40px;"></i>
+          </div>
+        </div>
+        <h1 class="display-5 fw-bold text-dark mb-3">Gerador de Gradientes</h1>
+        <p class="fs-5 text-secondary mx-auto" style="max-width: 700px;">
+          Crie gradientes deslumbrantes e obtenha o código CSS pronto para usar
+        </p>
+      </div>
+  
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4 fade-in-up" style="animation-delay: 0.2s;">
+          <div class="card shadow-xl rounded-4 border-0 p-4">
+            <h2 class="fs-3 fw-bold text-dark mb-4">Controles</h2>
+            
+            <div class="mb-3">
+              <label class="form-label fw-medium">Tipo de Gradiente</label>
+              <div class="btn-group w-100">
+                <button id="type-linear" class="btn btn-outline-primary active w-50">Linear</button>
+                <button id="type-radial" class="btn btn-outline-primary w-50">Radial</button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Primeira Cor</label>
+              <div class="input-group">
+                <input type="color" class="form-control form-control-color" id="color1-picker" value="#00BFFF">
+                <input type="text" class="form-control font-monospace" id="color1-input" value="#00BFFF">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Segunda Cor</label>
+              <div class="input-group">
+                <input type="color" class="form-control form-control-color" id="color2-picker" value="#FF6B35">
+                <input type="text" class="form-control font-monospace" id="color2-input" value="#FF6B35">
+              </div>
+            </div>
+            <div id="direction-container" class="mb-3">
+              <label class="form-label fw-medium">Direção</label>
+              <select id="direction-select" class="form-select"></select>
+            </div>
+            <div class="vstack gap-2">
+              <button id="random-button" class="btn btn-outline-secondary btn-lg w-100"><i data-lucide="rotate-ccw" class="me-2" style="width:16px;"></i>Aleatório</button>
+              <button id="copy-css-button" class="btn btn-primary btn-lg w-100"><i data-lucide="copy" class="me-2" style="width:16px;"></i>Copiar CSS</button>
+              <button id="download-png-button" class="btn btn-success btn-lg w-100"><i data-lucide="download" class="me-2" style="width:16px;"></i>Baixar PNG</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-8 fade-in-up" style="animation-delay: 0.4s;">
+          <div class="card shadow-xl rounded-4 border-0 p-4 mb-4">
+            <h2 class="fs-3 fw-bold text-dark mb-4">Preview</h2>
+            <div id="preview-box" class="w-100 rounded-4 shadow-lg" style="height: 300px;"></div>
+            <div class="mt-4">
+              <label class="form-label fw-medium">Código CSS</label>
+              <div class="position-relative">
+                <pre class="bg-dark text-success p-3 rounded-3 font-monospace small"><code id="css-code"></code></pre>
+                <button id="copy-css-button-2" class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2">
+                  <i data-lucide="copy" style="width: 16px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card shadow-xl rounded-4 border-0 p-4">
+            <h2 class="fs-3 fw-bold text-dark mb-4">Gradientes Predefinidos</h2>
+            <div id="preset-container" class="row g-3">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-light pt-5">
+    <div class="container-xl">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+            </div>
+            <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+          </div>
+          <p class="text-light opacity-75 mb-4" style="max-width: 450px;">
+            Sua plataforma criativa para descobrir, criar e compartilhar paletas de cores incríveis. 
+            Ferramentas profissionais para designers e criativos.
+          </p>
+          <div class="d-flex gap-2">
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-blue);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-orange);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-red);"></div>
+            <div class="rounded" style="width: 32px; height: 32px; background-color: var(--brand-green);"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Links Rápidos</h5>
+          <ul class="nav flex-column gap-2">
+            <li class="nav-item"><a href="palette-from-image.html" class="nav-link p-0 text-light opacity-75 footer-link">Paleta de Imagem</a></li>
+            <li class="nav-item"><a href="wcag-contrast.html" class="nav-link p-0 text-light opacity-75 footer-link">Contraste WCAG</a></li>
+            <li class="nav-item"><a href="gradients.html" class="nav-link p-0 text-light opacity-75 footer-link">Gradientes</a></li>
+            <li class="nav-item"><a href="color-picker.html" class="nav-link p-0 text-light opacity-75 footer-link">Seletor de Cor</a></li>
+            <li class="nav-item"><a href="references.html" class="nav-link p-0 text-light opacity-75 footer-link">Referências</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-semibold mb-3">Contato</h5>
+          <ul class="nav flex-column gap-3">
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="mail" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">contato@chromix.com</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="phone" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">+55 11 9999-9999</span>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-2">
+              <i data-lucide="map-pin" class="text-primary" style="width: 16px; height: 16px;"></i>
+              <span class="text-light opacity-75">São Paulo, Brasil</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle mt-4 py-4 text-center">
+        <p class="text-light opacity-50 m-0 small"> 
+          © 2025 Chromix. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let gradient = { color1: '#00BFFF', color2: '#FF6B35', direction: 'to right', type: 'linear' };
+      const directions = [
+        { value: 'to right', label: 'Horizontal →' }, { value: 'to left', label: '← Horizontal' }, { value: 'to bottom', label: 'Vertical ↓' }, { value: 'to top', label: '↑ Vertical' }, { value: 'to bottom right', label: 'Diagonal ↘' }, { value: 'to bottom left', label: '↙ Diagonal' }, { value: 'to top right', label: 'Diagonal ↗' }, { value: 'to top left', label: '↖ Diagonal' }
+      ];
+      const presetGradients = [
+        { name: 'Sunset', color1: '#FF6B35', color2: '#F7931E' }, { name: 'Ocean', color1: '#00BFFF', color2: '#118AB2' }, { name: 'Forest', color1: '#2D5016', color2: '#61A5C2' }, { name: 'Fire', color1: '#FF5E5B', color2: '#E63946' }, { name: 'Purple', color1: '#A05195', color2: '#D45087' }, { name: 'Gold', color1: '#FFD23F', color2: '#F77F00' }
+      ];
+      const allColors = ['#FF6B35', '#00BFFF', '#FF5E5B', '#2D5016', '#F7931E', '#118AB2', '#E63946', '#A05195', '#FFD23F', '#61A5C2'];
+      
+      const color1Picker = document.getElementById('color1-picker'), color1Input = document.getElementById('color1-input'), color2Picker = document.getElementById('color2-picker'), color2Input = document.getElementById('color2-input'), typeLinear = document.getElementById('type-linear'), typeRadial = document.getElementById('type-radial'), directionContainer = document.getElementById('direction-container'), directionSelect = document.getElementById('direction-select'), previewBox = document.getElementById('preview-box'), cssCode = document.getElementById('css-code'), randomButton = document.getElementById('random-button'), copyCssButton = document.getElementById('copy-css-button'), copyCssButton2 = document.getElementById('copy-css-button-2'), downloadButton = document.getElementById('download-png-button'), presetContainer = document.getElementById('preset-container');
+  
+      const generateCSS = () => gradient.type === 'linear' ? `background: linear-gradient(${gradient.direction}, ${gradient.color1}, ${gradient.color2});` : `background: radial-gradient(circle, ${gradient.color1}, ${gradient.color2});`;
+      
+      const updateUI = () => {
+        color1Picker.value = gradient.color1; color1Input.value = gradient.color1;
+        color2Picker.value = gradient.color2; color2Input.value = gradient.color2;
+        directionSelect.value = gradient.direction;
+        if (gradient.type === 'linear') {
+          typeLinear.classList.add('active'); typeRadial.classList.remove('active');
+          directionContainer.style.display = 'block';
+        } else {
+          typeLinear.classList.remove('active'); typeRadial.classList.add('active');
+          directionContainer.style.display = 'none';
+        }
+        const css = generateCSS();
+        previewBox.style.background = css.replace('background: ', '').replace(';', '');
+        cssCode.textContent = css;
+      };
+      
+      const copyCSS = () => { navigator.clipboard.writeText(generateCSS()); showToast('CSS copiado!', 'success'); };
+      
+      const downloadGradient = () => {
+        const canvas = document.createElement('canvas'); canvas.width = 800; canvas.height = 600;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          let gradientObj = gradient.type === 'linear' ? ctx.createLinearGradient(0, 0, canvas.width, 0) : ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, Math.min(canvas.width, canvas.height)/2);
+          gradientObj.addColorStop(0, gradient.color1); gradientObj.addColorStop(1, gradient.color2);
+          ctx.fillStyle = gradientObj; ctx.fillRect(0, 0, canvas.width, canvas.height);
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'gradient-chromix.png'; a.click(); URL.revokeObjectURL(url);
+              showToast('Gradiente baixado!', 'success');
+            }
+          });
+        }
+      };
+      
+      const randomGradient = () => {
+        const c1 = allColors[Math.floor(Math.random() * allColors.length)];
+        let c2 = allColors[Math.floor(Math.random() * allColors.length)];
+        while (c1 === c2) c2 = allColors[Math.floor(Math.random() * allColors.length)];
+        gradient = { ...gradient, color1: c1, color2: c2, direction: directions[Math.floor(Math.random() * directions.length)].value };
+        updateUI(); showToast('Gradiente aleatório gerado!', 'success');
+      };
+  
+      directions.forEach(dir => { directionSelect.innerHTML += `<option value="${dir.value}">${dir.label}</option>`; });
+      presetGradients.forEach(preset => {
+        const button = document.createElement('div');
+        button.className = 'col-6 col-md-4';
+        button.innerHTML = `
+          <button class="btn w-100 rounded-3 shadow-sm position-relative" style="height: 100px; background: linear-gradient(to right, ${preset.color1}, ${preset.color2});">
+            <span class="position-absolute bottom-0 start-0 m-2 px-2 py-1 bg-black bg-opacity-50 text-white rounded small">${preset.name}</span>
+          </button>
+        `;
+        button.querySelector('button').addEventListener('click', () => {
+          gradient = { ...gradient, color1: preset.color1, color2: preset.color2, direction: 'to right', type: 'linear' };
+          updateUI();
+        });
+        presetContainer.appendChild(button);
+      });
+  
+      [color1Input, color1Picker].forEach(el => el.addEventListener('input', (e) => { gradient.color1 = e.target.value; updateUI(); }));
+      [color2Input, color2Picker].forEach(el => el.addEventListener('input', (e) => { gradient.color2 = e.target.value; updateUI(); }));
+      directionSelect.addEventListener('change', (e) => { gradient.direction = e.target.value; updateUI(); });
+      typeLinear.addEventListener('click', () => { gradient.type = 'linear'; updateUI(); });
+      typeRadial.addEventListener('click', () => { gradient.type = 'radial'; updateUI(); });
+      randomButton.addEventListener('click', randomGradient);
+      copyCssButton.addEventListener('click', copyCSS); copyCssButton2.addEventListener('click', copyCSS);
+      downloadButton.addEventListener('click', downloadGradient);
+      
+      updateUI();
+    });
+  </script>
+</body>
+</html>

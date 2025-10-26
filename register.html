@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - Chromix</title>
+  <meta name="description" content="Crie sua conta na Chromix.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+
+  <header class="navbar bg-body-tertiary shadow-sm">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+        </div>
+        <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow-1 d-flex align-items-center py-5">
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-xl rounded-4 border-0 p-4 p-lg-5 fade-in-up">
+            <div class="text-center mb-4">
+              <h1 class="h2 fw-bold text-dark mb-3">Crie sua Conta</h1>
+              <p class="text-secondary">Preencha os campos abaixo para se cadastrar.</p>
+            </div>
+            
+            <form id="register-form">
+              <div class="mb-3">
+                <label for="register-name" class="form-label">Nome Completo</label>
+                <input type="text" class="form-control form-control-lg" id="register-name" required>
+              </div>
+              <div class="mb-3">
+                <label for="register-email" class="form-label">Email</label>
+                <input type="email" class="form-control form-control-lg" id="register-email" required>
+              </div>
+              <div class="mb-3">
+                <label for="register-password" class="form-label">Senha</label>
+                <input type="password" class="form-control form-control-lg" id="register-password" required minlength="6">
+                <div class="form-text">Mínimo de 6 caracteres.</div>
+              </div>
+              <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg rounded-3 py-2">
+                  Cadastrar
+                </button>
+              </div>
+            </form>
+            
+            <hr class="my-4">
+            
+            <p class="text-center text-secondary mb-0">
+              Já tem uma conta? <a href="login.html" class="fw-medium text-primary text-decoration-none">Faça login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="py-3 text-center">
+       <p class="text-body-secondary m-0 small">© 2025 Chromix</p>
+   </footer>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script> 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      const registerForm = document.getElementById('register-form');
+      const nameInput = document.getElementById('register-name');
+      const emailInput = document.getElementById('register-email');
+      const passwordInput = document.getElementById('register-password');
+
+      registerForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value; 
+
+        if (!name || !email || password.length < 6) {
+          showToast('Por favor, preencha todos os campos corretamente.', 'error');
+          return;
+        }
+
+        const userData = {
+          name: name,
+          email: email 
+        };
+        
+        if (localStorage.getItem(email)) {
+             showToast('Este email já está cadastrado. Tente fazer login.', 'error');
+             return;
+        }
+
+        try {
+
+          localStorage.setItem('loggedInUser', JSON.stringify(userData)); 
+          localStorage.setItem(email, JSON.stringify({ name: name })); 
+
+          showToast('Cadastro realizado com sucesso!', 'success');
+          
+
+          setTimeout(() => {
+            window.location.href = 'index.html'; 
+          }, 1500);
+
+        } catch (error) {
+           console.error("Erro ao salvar no localStorage:", error);
+           showToast('Ocorreu um erro ao tentar salvar seus dados.', 'error');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
