@@ -29,16 +29,15 @@
 
       <nav class="collapse navbar-collapse" id="main-nav">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
-            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-            <li class="nav-item"><a class="nav-link" href="palette-from-image.html">Paleta de Imagem</a></li>
-            <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
-            <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
-            <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
-            <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
-             <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="palette-from-image.html">Paleta de Imagem</a></li>
+          <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
+          <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
+          <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
+          <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
+          <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
+          <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
         </ul>
-    </nav>
 
         <div class="d-flex align-items-center gap-3">
           <div id="auth-logged-out">
@@ -46,12 +45,12 @@
               Entrar
             </button>
           </div>
-          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none">
-            <div class="d-flex align-items-center gap-2">
-              <i data-lucide="user" class="text-secondary" style="width: 20px; height: 20px;"></i>
-              <span class="fw-medium text-dark">Usuário</span>
+          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none flex-nowrap"> 
+            <div class="d-flex align-items-center gap-2 text-nowrap"> 
+              <i data-lucide="user" class="text-secondary flex-shrink-0" style="width: 20px; height: 20px;"></i> 
+              <span class="fw-medium text-dark username-truncate">Usuário</span> 
             </div>
-            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1">
+            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1 flex-shrink-0"> 
               <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
               <span>Sair</span>
             </button>
@@ -90,7 +89,7 @@
               <div class="mt-4">
                 <h3 class="fs-5 fw-semibold text-dark mb-3">Ou use uma imagem de exemplo:</h3>
                 <div id="sample-images" class="row g-3">
-                  </div>
+                </div>
               </div>
             </div>
   
@@ -127,12 +126,13 @@
               <small>Faça upload de uma imagem e ative o seletor</small>
             </div>
             <div id="color-info-details" class="d-none vstack gap-3">
-              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
   <footer class="bg-dark text-light pt-5">
     <div class="container-xl">
       <div class="row g-4">
@@ -161,6 +161,7 @@
             <li class="nav-item"><a href="wcag-contrast.html" class="nav-link p-0 text-light opacity-75 footer-link">Contraste WCAG</a></li>
             <li class="nav-item"><a href="gradients.html" class="nav-link p-0 text-light opacity-75 footer-link">Gradientes</a></li>
             <li class="nav-item"><a href="color-picker.html" class="nav-link p-0 text-light opacity-75 footer-link">Seletor de Cor</a></li>
+            <li class="nav-item"><a href="tutorial.html" class="nav-link p-0 text-light opacity-75 footer-link">Tutorial</a></li> 
             <li class="nav-item"><a href="references.html" class="nav-link p-0 text-light opacity-75 footer-link">Referências</a></li>
           </ul>
         </div>
@@ -186,24 +187,24 @@
 
       <div class="border-top border-secondary-subtle mt-4 py-4 text-center">
         <p class="text-light opacity-50 m-0 small"> 
-          © 2025 Chromix. Todos os direitos reservados.
+          © 2025 Chromix. Todos os direitos reservados. Criado com ❤️ para designers e criativos.
         </p>
       </div>
     </div>
   </footer>
 
   <div class="toast-container position-fixed top-0 end-0 p-3">
-    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="scripts.js"></script>
+  <script src="shared.js"></script>
   
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       let isPickingMode = false; 
       let selectedImage = null; 
       let pickedColor = null;
-      let isImageLoaded = false;
+      let isImageLoaded = false; 
 
       const imageUpload = document.getElementById('image-upload');
       const canvasRef = document.getElementById('canvas-ref');
@@ -217,17 +218,21 @@
       const colorInfoDetails = document.getElementById('color-info-details');
       const sampleImagesContainer = document.getElementById('sample-images');
   
+      const ctx = canvasRef ? canvasRef.getContext('2d', { willReadFrequently: true }) : null;
+      if (!ctx) {
+         console.error("Não foi possível obter o contexto 2D do canvas. O seletor de cor não funcionará.");
+         if (pickerToggleButton) pickerToggleButton.disabled = true;
+      }
+
       const sampleImages = [
         'https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?w=600',
         'https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?w=600',
-        'https://images.pexels.com/photos/34114827/pexels-photo-34114827.jpeg?w=600',
+        'https://images.pexels.com/photos/1671325/pexels-photo-1671325.jpeg?w=600',
         'https://images.pexels.com/photos/1212693/pexels-photo-1212693.jpeg?w=600',
-        'https://images.pexels.com/photos/34149189/pexels-photo-34149189.jpeg?w=600',
-        'https://images.pexels.com/photos/34150495/pexels-photo-34150495.jpeg?w=600'
-
+        'https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?w=600',
+        'https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=600'
       ];
       
-  
       const copyColor = (color) => { 
         navigator.clipboard.writeText(color)
           .then(() => showToast(`Cor ${color} copiada!`, 'success'))
@@ -255,14 +260,14 @@
           return { hex, rgb: `rgb(${r}, ${g}, ${b})`, hsl: `hsl(${h}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`, v: { h, s: Math.round(s * 100), l: Math.round(l * 100) } };
         } catch (e) {
           console.error("Erro ao processar cor:", hex, e);
-          return { hex, rgb: 'N/A', hsl: 'N/A', v: {h:0, s:0, l:0}};
+          return { hex, rgb: 'N/A', hsl: 'N/A', v: {h:0, s:0, l:0}}; 
         }
       };
 
       const renderColorInfo = (color) => {
         if (!color || !/^#[0-9A-F]{6}$/i.test(color)) {
             console.warn("Cor inválida recebida:", color);
-            resetColorInfo();
+            resetColorInfo(); 
             return;
         }
         const info = getColorInfo(color);
@@ -308,7 +313,6 @@
         isImageLoaded = false;
         resetColorInfo(); 
         imageRef.src = ''; 
-        imageRef.onload = null; 
         imageSection.classList.add('d-none'); 
         uploadSection.classList.remove('d-none'); 
         imageUpload.value = null; 
@@ -317,44 +321,23 @@
 
       const setImage = (src) => { 
         selectedImage = src; 
-        isImageLoaded = false;
+        isImageLoaded = false; 
+        pickerToggleButton.disabled = true; 
         imageRef.src = src; 
         uploadSection.classList.add('d-none'); 
         imageSection.classList.remove('d-none'); 
         resetColorInfo(); 
         setPickingMode(false); 
-
-       
-        imageRef.onload = () => {
-          isImageLoaded = true;
-       
-          const canvas = canvasRef;
-          const ctx = canvas.getContext('2d');
-          const img = imageRef;
-          if (ctx && img.complete && img.naturalHeight !== 0) {
-             canvas.width = img.naturalWidth;
-             canvas.height = img.naturalHeight;
-             try {
-                ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
-                console.log("Imagem pré-desenhada no canvas.");
-             } catch (e) {
-                console.error("Erro ao desenhar imagem no canvas (onload):", e);
-                showToast("Erro ao carregar a imagem para seleção.", "error");
-                resetAll(); 
-             }
-          }
-        };
-      
-        imageRef.onerror = () => {
-           console.error("Erro ao carregar a imagem:", src);
-           showToast("Erro ao carregar a imagem selecionada.", "error");
-           resetAll();
-        }
       };
       
       const setPickingMode = (mode) => {
         isPickingMode = mode;
         if (isPickingMode) {
+          if (!isImageLoaded || !ctx) { 
+             showToast("Aguarde a imagem carregar completamente ou verifique o console.", "error");
+             isPickingMode = false; 
+             return; 
+          }
           imageRef.classList.add('cursor-crosshair'); 
           imageRef.classList.remove('cursor-default');
           pickingOverlay.classList.remove('d-none'); 
@@ -374,18 +357,45 @@
         lucide.createIcons();
       };
       
-  
       sampleImages.forEach((src, index) => {
         const buttonWrapper = document.createElement('div'); 
-        buttonWrapper.className = 'col-6';
+        buttonWrapper.className = 'col-6 col-md-4'; 
         const button = document.createElement('button');
         button.className = 'btn border-0 p-0 rounded-3 overflow-hidden shadow-sm w-100'; 
         button.innerHTML = `<img src="${src}" alt="Exemplo ${index + 1}" class="img-fluid w-100" style="height: 120px; object-fit: cover;" crossOrigin="anonymous">`; 
+        button.addEventListener('click', () => setImage(src));
         buttonWrapper.appendChild(button);
         sampleImagesContainer.appendChild(buttonWrapper);
       });
       
-     
+      imageRef.onload = () => {
+          isImageLoaded = true;
+          pickerToggleButton.disabled = false; 
+          const img = imageRef;
+          if (ctx && img.complete && img.naturalHeight !== 0) {
+             canvasRef.width = img.naturalWidth;
+             canvasRef.height = img.naturalHeight;
+             try {
+                ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+                console.log("Imagem pré-desenhada no canvas.");
+             } catch (e) {
+                console.error("Erro ao desenhar imagem no canvas (onload):", e);
+                if (e.name === 'SecurityError') {
+                    showToast('Não é possível processar esta imagem devido a restrições de segurança (CORS). Tente uma imagem do seu dispositivo.', 'error');
+                } else {
+                    showToast("Erro ao carregar a imagem para seleção.", "error");
+                }
+                resetAll(); 
+             }
+          }
+      };
+      
+      imageRef.onerror = () => {
+         console.error("Erro ao carregar a imagem:", imageRef.src);
+         showToast("Erro ao carregar a imagem selecionada. Verifique o URL ou o arquivo.", "error");
+         resetAll();
+      }
+
       imageUpload.addEventListener('change', (e) => {
         const file = e.target.files[0]; 
         if (!file) return;
@@ -398,37 +408,21 @@
       pickerToggleButton.addEventListener('click', () => setPickingMode(!isPickingMode));
       
       imageRef.addEventListener('click', (event) => {
-
-        if (!isPickingMode || !isImageLoaded || !canvasRef) {
-          console.log("Picking não ativo ou imagem/canvas não pronto.");
+        if (!isPickingMode || !isImageLoaded || !ctx) {
+          console.log("Modo picker não ativo ou imagem/canvas não pronto.");
           return;
         } 
         
-        const canvas = canvasRef;
-        const ctx = canvas.getContext('2d', { willReadFrequently: true }); 
         const img = imageRef; 
-        
-        if (!ctx) {
-          console.error("Contexto 2D do Canvas não encontrado.");
-          return;
-        }
-
-     
         const rect = img.getBoundingClientRect(); 
         const scaleX = img.naturalWidth / rect.width;
         const scaleY = img.naturalHeight / rect.height;
-   
         const x = Math.max(0, Math.min(Math.floor((event.clientX - rect.left) * scaleX), img.naturalWidth - 1)); 
         const y = Math.max(0, Math.min(Math.floor((event.clientY - rect.top) * scaleY), img.naturalHeight - 1));
         
-        console.log(`Click em: Client(${event.clientX}, ${event.clientY}), ImgRect(${rect.left}, ${rect.top}), Scale(${scaleX.toFixed(2)}, ${scaleY.toFixed(2)}), CanvasCoords(${x}, ${y})`);
-
         try {
-    
             const imageData = ctx.getImageData(x, y, 1, 1); 
             const data = imageData.data; 
-            
-
             const hex = `#${[data[0], data[1], data[2]].map(c => c.toString(16).padStart(2, '0')).join('')}`;
             
             pickedColor = hex; 
@@ -437,13 +431,12 @@
             showToast('Cor selecionada!', 'success');
         } catch (e) {
             console.error("Erro ao obter dados da imagem (getImageData):", e);
-   
             if (e.name === 'SecurityError') {
-                 showToast('Não foi possível ler os pixels da imagem devido às restrições de segurança (CORS). Tente usar uma imagem de exemplo ou uma imagem do seu dispositivo.', 'error');
+                 showToast('Não é possível ler os pixels desta imagem devido a restrições de segurança (CORS). Tente uma imagem do seu dispositivo.', 'error');
             } else {
                  showToast('Erro ao selecionar a cor.', 'error');
             }
-            setPickingMode(false);
+            setPickingMode(false); 
         }
       });
       
@@ -451,6 +444,10 @@
         const btn = e.target.closest('.copy-button'); 
         if (btn) copyColor(btn.dataset.color); 
       });
+
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
     });
   </script>
 </body>
