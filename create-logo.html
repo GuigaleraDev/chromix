@@ -19,7 +19,7 @@
     <div class="container-xl">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-          </div>
+        </div>
         <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
       </a>
       
@@ -34,9 +34,9 @@
           <li class="nav-item"><a class="nav-link" href="wcag-contrast.html">Contraste WCAG</a></li>
           <li class="nav-item"><a class="nav-link" href="gradients.html">Gradientes</a></li>
           <li class="nav-item"><a class="nav-link" href="color-picker.html">Seletor de Cor</a></li>
+          <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
           <li class="nav-item"><a class="nav-link" href="references.html">Referências</a></li>
           <li class="nav-item"><a class="nav-link" href="create-logo.html">Crie sua Logo</a></li>
-          <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li> 
         </ul>
 
         <div class="d-flex align-items-center gap-3">
@@ -45,12 +45,12 @@
               Entrar
             </button>
           </div>
-          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none">
-            <div class="d-flex align-items-center gap-2">
-              <i data-lucide="user" class="text-secondary" style="width: 20px; height: 20px;"></i>
-              <span class="fw-medium text-dark">Usuário</span>
+          <div id="auth-logged-in" class="d-flex align-items-center gap-3 d-none flex-nowrap"> 
+            <div class="d-flex align-items-center gap-2 text-nowrap"> 
+              <i data-lucide="user" class="text-secondary flex-shrink-0" style="width: 20px; height: 20px;"></i> 
+              <span class="fw-medium text-dark username-truncate">Usuário</span> 
             </div>
-            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1">
+            <button id="signout-button" class="btn btn-link text-decoration-none text-danger d-flex align-items-center gap-1 px-2 py-1 flex-shrink-0"> 
               <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
               <span>Sair</span>
             </button>
@@ -62,7 +62,7 @@
 
   <main class="flex-grow-1 bg-body-tertiary py-5">
     
-    <div class="container-xl mb-5">
+    <div class="container-xl mb-5"> 
       <div class="text-center mb-5 fade-in-up">
         <div class="d-flex justify-content-center mb-4">
           <div class="rounded-4 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: linear-gradient(to right, #FFD23F, #F77F00);">
@@ -82,7 +82,7 @@
              <strong>Solicitação Enviada!</strong> Recebemos seus dados e seu projeto aparecerá como "Em Análise" na tabela abaixo. Entraremos em contato em breve.
           </div>
 
-          <form id="logo-form" class="card shadow-xl rounded-4 border-0 p-4 p-lg-5 fade-in-up" style="animation-delay: 0.2s;">
+          <form id="logo-form" class="card shadow-xl rounded-4 border-0 p-4 p-lg-5 fade-in-up" style="animation-delay: 0.2s;" novalidate>
             <h2 class="fs-3 fw-bold text-dark mb-4 d-flex align-items-center gap-3">
               <span class="d-flex align-items-center justify-content-center rounded-2 text-white fw-bold" style="width: 32px; height: 32px; background-color: var(--brand-blue);">1</span>
               Informações de Contato
@@ -138,7 +138,12 @@
               <span class="d-flex align-items-center justify-content-center rounded-2 text-white fw-bold" style="width: 32px; height: 32px; background-color: var(--brand-red);">3</span>
               Detalhes do Projeto
             </h2>
-            <div class="col-12">
+            <div class="row g-3 mb-4">
+              <div class="col-12">
+                <label for="details" class="form-label">Detalhes Adicionais</label>
+                <textarea class="form-control form-control-lg" id="details" name="details" rows="4" placeholder="Estilo desejado, cores, público-alvo..."></textarea>
+              </div>
+              <div class="col-12">
                 <label for="inspiration_attachment" class="form-label">Anexo de Inspiração (Opcional)</label>
                 <input 
                   class="form-control form-control-lg" 
@@ -154,12 +159,13 @@
                   <button type="button" id="remove-file-button" class="btn btn-sm btn-outline-danger ms-2" aria-label="Remover imagem">Remover</button>
                 </div>
               </div>
+            </div>
             
             <hr class="my-4">
             <button id="submit-button" type="submit" class="btn btn-primary btn-lg w-100 rounded-3 py-3">
               <span id="submit-button-text" class="d-flex align-items-center justify-content-center gap-2">
                 <i data-lucide="send" style="width: 20px;"></i>
-                Enviar Solicitação
+                Enviar Solicitação e Adicionar ao Portfólio
               </span>
               <span id="loading-spinner" class="d-none">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -191,21 +197,6 @@
                 </tr>
               </thead>
               <tbody id="portfolio-table-body">
-                <tr>
-                  <td>Google</td>
-                  <td>Tecnologia</td>
-                  <td><span class="badge bg-success">Concluído</span></td>
-                </tr>
-                <tr>
-                  <td>McDonalds</td>
-                  <td>Alimentação</td>
-                  <td><span class="badge bg-success">Concluído</span></td>
-                </tr>
-                <tr>
-                  <td>Hospital Albert Einstein</td>
-                  <td>Saúde</td>
-                  <td><span class="badge bg-warning text-dark">Em Produção</span></td>
-                </tr>
                 </tbody>
             </table>
           </div>
@@ -213,13 +204,14 @@
       </div>
 
   </main>
+
   <footer class="bg-dark text-light pt-5">
     <div class="container-xl">
       <div class="row g-4">
         <div class="col-12 col-md-6">
           <div class="d-flex align-items-center gap-2 mb-3">
             <div class="bg-brand-gradient-logo rounded-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-              </div>
+            </div>
             <span class="fs-4 fw-bold bg-brand-gradient-logo-text">Chromix</span>
           </div>
           <p class="text-light opacity-75 mb-4" style="max-width: 450px;">
@@ -241,8 +233,8 @@
             <li class="nav-item"><a href="wcag-contrast.html" class="nav-link p-0 text-light opacity-75 footer-link">Contraste WCAG</a></li>
             <li class="nav-item"><a href="gradients.html" class="nav-link p-0 text-light opacity-75 footer-link">Gradientes</a></li>
             <li class="nav-item"><a href="color-picker.html" class="nav-link p-0 text-light opacity-75 footer-link">Seletor de Cor</a></li>
+            <li class="nav-item"><a href="tutorial.html" class="nav-link p-0 text-light opacity-75 footer-link">Tutorial</a></li> 
             <li class="nav-item"><a href="references.html" class="nav-link p-0 text-light opacity-75 footer-link">Referências</a></li>
-             <li class="nav-item"><a href="tutorial.html" class="nav-link p-0 text-light opacity-75 footer-link">Tutorial</a></li> 
           </ul>
         </div>
 
@@ -255,7 +247,7 @@
             </li>
             <li class="nav-item d-flex align-items-center gap-2">
               <i data-lucide="phone" class="text-primary" style="width: 16px; height: 16px;"></i>
-              <span class="text-light opacity-75">+55 11 94277-4667</span>
+              <span class="text-light opacity-75">+55 11 9999-9999</span>
             </li>
             <li class="nav-item d-flex align-items-center gap-2">
               <i data-lucide="map-pin" class="text-primary" style="width: 16px; height: 16px;"></i>
@@ -267,7 +259,7 @@
 
       <div class="border-top border-secondary-subtle mt-4 py-4 text-center">
         <p class="text-light opacity-50 m-0 small"> 
-          © 2025 Chromix. Todos os direitos reservados.
+          © 2025 Chromix. Todos os direitos reservados. Criado com ❤️ para designers e criativos.
         </p>
       </div>
     </div>
@@ -276,20 +268,28 @@
   <div class="toast-container position-fixed top-0 end-0 p-3"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="scripts.js"></script> 
+  <script src="shared.js"></script> 
   
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => { 
       const form = document.getElementById('logo-form');
       const submitButton = document.getElementById('submit-button');
       const submitButtonText = document.getElementById('submit-button-text');
       const loadingSpinner = document.getElementById('loading-spinner');
-      const successMessageDiv = document.getElementById('success-message');
+      const successMessageDiv = document.getElementById('success-message'); 
       
       const tableBody = document.getElementById('portfolio-table-body');
-      const portfolioKey = 'chromixPortfolio';
+      const portfolioKey = 'chromixPortfolio'; 
 
-    
+      const fileInput = document.getElementById('inspiration_attachment');
+      const filePreviewContainer = document.getElementById('file-preview-container');
+      const filePreview = document.getElementById('file-preview');
+      const removeFileButton = document.getElementById('remove-file-button');
+      
+      const emailInput = document.getElementById('email');
+      const nameInput = document.getElementById('name');
+      const emailRegex = /\S+@\S+\.\S+/;
+
       const getPortfolioData = () => {
         const data = localStorage.getItem(portfolioKey);
         try {
@@ -309,54 +309,112 @@
             case 'em produção': case 'em producao': statusBadgeClass = 'bg-warning text-dark'; statusText = 'Em Produção'; break;
             case 'em análise': case 'em analise': statusBadgeClass = 'bg-info text-dark'; statusText = 'Em Análise'; break;
         }
+        const fileNameCell = item.fileName ? `<br><small class="text-muted" title="${item.fileName}">Anexo: ${item.fileName.substring(0, 20)}${item.fileName.length > 20 ? '...' : ''}</small>` : '';
         newRow.innerHTML = `
-          <td>${item.name || 'Nome Indisponível'}</td>
+          <td>${item.name || 'Nome Indisponível'} ${fileNameCell}</td>
           <td>${item.sector || 'Ramo Indisponível'}</td>
           <td><span class="badge ${statusBadgeClass}">${statusText}</span></td>
         `;
         return newRow;
       };
 
-      const loadPortfolio = () => {
-         const portfolioData = getPortfolioData();
-        
-         
-     
-         portfolioData.forEach(item => {
-           const row = renderTableRow(item);
-      
-           tableBody.appendChild(row);
-         });
-         console.log("Portfólio carregado:", portfolioData);
+      const loadStaticData = async () => {
+        try {
+          const response = await fetch('tabela.json'); 
+          if (!response.ok) {
+            throw new Error(`Erro HTTP! status: ${response.status}`);
+          }
+          const staticData = await response.json();
+          
+          staticData.forEach(item => {
+            tableBody.appendChild(renderTableRow(item));
+          });
+          
+        } catch (error) {
+          console.error("Erro ao carregar dados estáticos (tabela.json):", error);
+          tableBody.innerHTML = '<tr><td colspan="3" class="text-center text-danger">Erro ao carregar portfólio base.</td></tr>';
+        }
       };
 
+      const loadDynamicData = () => {
+         const portfolioData = getPortfolioData(); 
+         portfolioData.forEach(item => {
+           const row = renderTableRow(item);
+           tableBody.appendChild(row);
+         });
+         console.log("Portfólio dinâmico (localStorage) carregado:", portfolioData);
+      };
 
       const setLoading = (isLoading) => {
         submitButton.disabled = isLoading;
-        if (isLoading) {
-          submitButtonText.classList.add('d-none');
-          loadingSpinner.classList.remove('d-none');
-        } else {
-          submitButtonText.classList.remove('d-none');
-          loadingSpinner.classList.add('d-none');
-        }
+        submitButtonText.classList.toggle('d-none', isLoading);
+        loadingSpinner.classList.toggle('d-none', !isLoading);
       };
+
+      const clearFilePreview = () => {
+          fileInput.value = ''; 
+          filePreview.src = '#';
+          filePreviewContainer.classList.add('d-none'); 
+      };
+
+      fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          if (file && file.type.startsWith('image/')) {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                  filePreview.src = e.target.result;
+                  filePreviewContainer.classList.remove('d-none'); 
+              }
+              reader.readAsDataURL(file);
+          } else {
+              clearFilePreview();
+              if (file) { 
+                 showToast('Por favor, selecione um arquivo de imagem.', 'error');
+              }
+          }
+      });
+
+      removeFileButton.addEventListener('click', clearFilePreview);
+
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         setLoading(true);
         successMessageDiv.classList.add('d-none'); 
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        const formData = new FormData(form); 
+        const dataForStorage = Object.fromEntries(formData.entries()); 
+        const attachedFile = formData.get('inspiration_attachment'); 
+        const attachedFileName = attachedFile instanceof File ? attachedFile.name : null;
+
+        if (!dataForStorage.name) {
+             showToast('Por favor, preencha seu nome completo.', 'error');
+             nameInput.focus();
+             setLoading(false);
+             return;
+        }
+        if (!emailRegex.test(dataForStorage.email)) {
+            showToast('Por favor, insira um email válido (ex: nome@dominio.com).', 'error');
+            emailInput.focus();
+            setLoading(false);
+            return;
+        }
+        if (!dataForStorage.company_name || !dataForStorage.business_sector || !dataForStorage.what_they_do) {
+             showToast('Por favor, preencha todos os campos obrigatórios (*) da empresa.', 'error');
+             if(!dataForStorage.company_name) document.getElementById('company_name').focus();
+             else if(!dataForStorage.business_sector) document.getElementById('business_sector').focus();
+             else document.getElementById('what_they_do').focus();
+             
+             setLoading(false);
+             return;
+        }
 
         try {
-
-      
-          let newEntry = null; 
+          
+          let newEntry = null;
           try {
-            const companyName = data.company_name;
-            const businessSector = data.business_sector;
+            const companyName = dataForStorage.company_name;
+            const businessSector = dataForStorage.business_sector;
 
             if (companyName && businessSector) { 
               const portfolioData = getPortfolioData(); 
@@ -364,50 +422,52 @@
               newEntry = {
                 name: companyName,
                 sector: businessSector,
-                status: 'Em Análise' 
+                status: 'Em Análise',
+                fileName: attachedFileName 
               };
 
               portfolioData.push(newEntry);
               localStorage.setItem(portfolioKey, JSON.stringify(portfolioData));
               console.log("Adicionado ao portfólio:", newEntry);
 
-
               tableBody.appendChild(renderTableRow(newEntry)); 
               
-  
               successMessageDiv.classList.remove('d-none'); 
               form.reset(); 
+              clearFilePreview(); 
               showToast('Solicitação enviada e adicionada ao portfólio!', 'success');
 
             } else {
-              console.warn("Nome ou ramo não preenchido.");
               showToast('Solicitação enviada, mas dados incompletos para o portfólio.', 'warning'); 
               successMessageDiv.classList.remove('d-none'); 
               form.reset();
+              clearFilePreview();
             }
           } catch (storageError) {
             console.error("Erro ao salvar/atualizar portfólio:", storageError);
             showToast('Solicitação enviada, mas houve erro ao atualizar o portfólio local.', 'warning'); 
             successMessageDiv.classList.remove('d-none'); 
+            form.reset();
+            clearFilePreview();
           }
-        
           
-        } catch (error) {
-          console.error('Erro ao enviar solicitação:', error);
-          showToast('Erro ao enviar. Tente novamente.', 'error');
+        } catch (error) { 
+          console.error('Erro inesperado durante o envio:', error);
+          showToast('Ocorreu um erro inesperado.', 'error');
         } finally {
           setLoading(false);
         }
       });
       
+      tableBody.innerHTML = ''; 
+      await loadStaticData(); 
+      loadDynamicData();      
 
-      loadPortfolio();
-
- 
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
     });
   </script>
+
 </body>
 </html>
