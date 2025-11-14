@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Tech Solutions Inc.",
+      "sector": "Tecnologia",
+      "status": "Concluído"
+    },
+    {
+      "name": "Café Saboroso",
+      "sector": "Alimentação",
+      "status": "Concluído"
+    },
+    {
+      "name": "Clínica Bem Estar",
+      "sector": "Saúde",
+      "status": "Em Produção"
+    }
+  ]
